@@ -93,8 +93,9 @@ export const Modal: FC<IModalProps> = ({
                       onClick={handleSecondaryAction}
                     />
                   )}
-                  <Button disabled label={actionLabel} onClick={handleSubmit} />
+                  <Button label={actionLabel} onClick={handleSubmit} />
                 </div>
+                {footer}
               </div>
             </div>
           </div>

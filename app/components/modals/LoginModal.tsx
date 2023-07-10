@@ -11,15 +11,17 @@ import { Modal } from "./Modal";
 import { Heading } from "../Heading";
 import { Input } from "../inputs/Input";
 import { Button } from "../buttons/Button";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
-interface IRegisterModalProps {}
+interface ILoginModalProps {}
 /**
  * @author
- * @function RegisterModal
+ * @function LoginModal
  **/
 
-export function RegisterModal<FC>(props: IRegisterModalProps) {
+export function LoginModal<FC>(props: ILoginModalProps) {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -62,23 +64,6 @@ export function RegisterModal<FC>(props: IRegisterModalProps) {
         errors={errors}
         required
       />
-      <Input
-        id="name"
-        label="Name"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
-      <Input
-        id="password"
-        label="Password"
-        type="password"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
     </div>
   );
 
@@ -112,10 +97,10 @@ export function RegisterModal<FC>(props: IRegisterModalProps) {
   return (
     <Modal
       disabled={isLoading}
-      isOpen={registerModal.isOpen}
-      title="Register"
+      isOpen={loginModal.isOpen}
+      title="Login"
       actionLabel="Continue"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
